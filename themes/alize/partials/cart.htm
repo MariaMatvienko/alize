@@ -1,0 +1,30 @@
+[Cart]
+== 
+{% set obCartElementList = Cart.get() %}
+    <div class="cart_modal_container" >
+    
+      {% if obCartElementList.isNotEmpty() %}
+        {% for obCartElement in obCartElementList %}
+            {% set obOffer = obCartElement.offer %}
+    
+        <div class="cart_elem" data-id="{{ obOffer.id }}">
+            <div class="cart_delete" data-id="{{ obCartElement.id }}"></div>
+            <div class="cart_img" style="background-image: url({{ obOffer.product.preview_image.path() }});"></div>
+            <div class="cart_title" data-id="{{ obCartElement.property.color}}">{{ obOffer.product.name }} (#{{ obCartElement.property.color}})</div>
+            <div class="cart_counter_minus">-</div>
+            <div class="cart_counter_number" data-id="{{ obCartElement.quantity}}">{{ obCartElement.quantity }}</div>
+            <div class="cart_counter_plus">+</div>
+            <div class="cart_price"> {{ obCartElement.price }} грн.</div>
+        </div>
+         {% endfor %}
+    
+        <div class="cart_all_price">Полная сумма: {{ obCartElementList.getTotalPrice() }} {{ obCartElementList.getCurrency() }}</div>
+    {% else %}
+     <div class="cart_empty_text">Корзина пуста!</div>
+    {% endif %}
+
+    </div>
+    <a href="{{ '/alize/order'}}">
+        <div class="cart_button">В корзину</div>
+    </a>
+    <script src="{{ 'assets/js/main.js'|theme}}"></script>

@@ -1,0 +1,138 @@
+.phone_form {
+    width: 300px;
+    margin: 50px auto;
+    position: relative;
+}
+
+.user-phone {
+    width: 300px;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    /*padding: 8px 8px 8px 36px;*/
+    padding: 8px 8px 8px 8px;
+    height: 40px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+    color: #363636;
+}
+
+.user-phone:focus {
+    outline: none;
+    border-color: #363636;
+}
+
+input.user-phone:-moz-placeholder {
+    color: #363636;
+}
+
+input.user-phone::-webkit-input-placeholder {
+    color: #363636;
+}
+
+.btn_submit {
+    height: 30px;
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    background: #363636;
+    color: #fff;
+    border: none;
+    width: 120px;
+    cursor: pointer;
+    transition: all 0.5s;
+    -webkit-transition: all 0.5s;
+    -moz-transition: all 0.5s;
+}
+
+.btn_submit[disabled] {
+    color: #363636;
+    background: #ccc;
+}
+
+#popup__toggle {
+    cursor: pointer;
+    bottom: 25px;
+    right: 10px;
+    position: fixed;
+    z-index: 999;
+}
+
+.circle-fill {
+    background: linear-gradient(280.02deg, #FF7AF2 -22.61%, #56D6FF 111.26%);
+    width: 70px;
+    height: 70px;
+    bottom: 0px;
+    right: 35px;
+    position: absolute;
+    -webkit-border-radius: 100%;
+    -moz-border-radius: 100%;
+    border-radius: 100%;
+}
+
+.img-circle {
+    box-sizing: content-box;
+    -webkit-box-sizing: content-box;
+    width: 50px;
+    height: 50px;
+    bottom: 18px;
+    right: 55px;
+    position: absolute;
+    -webkit-border-radius: 100%;
+    -moz-border-radius: 100%;
+    border-radius: 100%;
+    border: 2px solid transparent;
+}
+
+.img-circleblock {
+    box-sizing: content-box;
+    -webkit-box-sizing: content-box;
+    width: 72px;
+    height: 72px;
+    background-image: url(../img/mini.png);
+    background-position: center center;
+    background-repeat: no-repeat;
+    animation-name: tossing;
+    -webkit-animation-name: tossing;
+    animation-duration: 1.5s;
+    -webkit-animation-duration: 1.5s;
+    animation-iteration-count: infinite;
+    -webkit-animation-iteration-count: infinite;
+}
+
+@keyframes tossing {
+    0% {
+        transform: rotate(-8deg);
+    }
+    50% {
+        transform: rotate(8deg);
+    }
+    100% {
+        transform: rotate(-8deg);
+    }
+}
+
+@-webkit-keyframes tossing {
+    0% {
+        -webkit-transform: rotate(-8deg);
+    }
+    50% {
+        -webkit-transform: rotate(8deg);
+    }
+    100% {
+        -webkit-transform: rotate(-8deg);
+    }
+}
+
+@media (max-width: 600px) {
+    .circle-fill {
+        right: 15px;
+        width: 50px;
+        height: 50px;
+    }
+    .img-circle {
+        right: 23px;
+        bottom: 8px;
+        transform: scale(0.8, 0.8);
+    }
+}

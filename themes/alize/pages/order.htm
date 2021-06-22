@@ -1,0 +1,131 @@
+title = "Order"
+url = "/order"
+layout = "default"
+is_hidden = 0
+
+[PaymentMethodList]
+
+[ShippingTypeList]
+
+[MakeOrder]
+mode = "ajax"
+redirect_on = 1
+redirect_page = "order"
+
+[Cart]
+
+[session]
+security = "all"
+==
+<link rel="stylesheet" href="{{ 'assets/css/style_order.css'|theme}}">
+
+<div class="container">
+    {% partial 'header' %} 
+{% set arError = MakeOrder.getErrorMessage %}
+{% set arForm = MakeOrder.getOldFormData %}
+{% set obCartElementList = Cart.get() %}
+
+<form href="{{ 'order'|page }}">
+<div class="breadcrumbs"><ins>Главная</ins> &nbsp&nbsp&nbsp&nbsp>&nbsp&nbsp&nbsp&nbsp <span class="breadcrumbs_title_product">Каталог</span></div>
+        <div class="order_container">
+            <img src="{{ 'assets/img/order_slider.png'|theme}}" class="order_slider" alt="">
+            <div class="data_user previous_data_user animated fadeInUp">
+                <p class="weight_title data_user_title">Данные получателя</p>
+                {% if user %}
+                <p>Кто получатель?</p>
+                <input class="order_radio" checked="checked" type="radio" name="recipient" value="user">Я <input class="order_radio" type="radio" name="recipient" value="guest">Другой человек
+                {% else %}
+                <p class="link_reg">Уверены, что хотите продолжить без авторизации? <br> <a href="{{ '/alize/account'}}">Войти/Зарегистрироваться</a></p>
+                {% endif %}
+                <div class="form-group logged_in">
+                    <label for="accountName">ФИО</label>
+                    <input name="name" type="text" class="form-control" id="accountName" value="{{user.name}}">
+                </div>
+                <div class="form-group logged_in">
+                    <label for="accountMobile">Телефон</label>
+                    <input name="mobile" type="phone" class="form-control" id="accountMobile" value="{{user.mobile}}">
+                </div>
+                <div class="form-group logged_in">
+                    <label for="accountEmail">E-mail</label>
+                    <input name="email" type="email" class="form-control" id="accountEmail" value="{{user.email}}">
+                </div>
+                <input type="hidden" name="order[shipping_price]" value="5.50">
+                    {% if obCartElementList.isNotEmpty() %}
+                    <div class="order_next">Далее</div>
+                    {% else %}
+                    <div class="order_next order_next_dis">Далее</div>
+                    {% endif %}
+                    <div class="back_button">Назад</div>
+                    <p class="order_delivery">Доставка и оплата</p>
+         </div>
+         <div class="data_user next_data_user animated fadeInDown">
+                <p class="weight_title data_user_title">Данные получателя</p>
+               
+                <div class="form-group logged_in">
+                    <label for="accountStreet_addr">Адрес доставки</label>
+                    <input name="street_addr" type="text" class="form-control" id="accountStreet_addr" value="{{user.street_addr}}">
+                </div>
+                {% set obPaymentMethodList = PaymentMethodList.make().sort().active() %}
+                {% if obPaymentMethodList.isNotEmpty() %}
+                    <div class="payment-method-list-wrapper">
+                     <p>Выберите тип оплаты: </p>
+                        <div class="radio_container">
+                        {% for obPaymentMethod in obPaymentMethodList %}
+                            <input class="PaymentMethod" type="radio" name="order_payment_method_id" id="payment-{{ obPaymentMethod.id }}" value="{{ obPaymentMethod.id }}">
+                            <label for="payment-{{ obPaymentMethod.id }}">{{ obPaymentMethod.name }}</label>
+                        {% endfor %}
+                        </div>
+                    </div>
+                {% endif %}
+
+                {% set obShippingTypeList = ShippingTypeList.make().sort().active() %}
+                {% if obShippingTypeList.isNotEmpty() %}
+                    <div class="payment-method-list-wrapper">
+                    <p>Выберите тип доставки: </p>
+                        <div class="radio_container">
+                        {% for obShippingType in obShippingTypeList %}
+                            <input class="ShippingType" type="radio" name="order_shipping_type_id" id="payment-{{ obShippingType.id }}" value="{{ obShippingType.id }}">
+              
+                            <label for="payment-{{ obShippingType.id }}">{{ obShippingType.name }}</label>
+                        {% endfor %}
+                        </div>
+                    </div>
+                {% endif %}
+                <input type="hidden" name="order[shipping_price]" value="5.50">
+                    <div class="order_next">Далее</div>
+                    <div class="back_button">Назад</div>
+                    <p class="order_delivery">Доставка и оплата</p>
+         </div>
+
+            <div class="order_cart_container"> 
+            <p class="weight_title">Ваш заказ:</p>
+                <div class="cart_list cart_update"> {% partial 'cart' %}</div>
+                
+                <div class="result_container">
+                {% partial 'result_container' %}
+                </div>
+               
+
+           </div>
+        </div>
+
+    
+{# 
+    #}
+
+  
+
+
+        {# <label for="field-email">Email</label>
+    <input type="email" id="field-email" placeholder="Email" name="user[email]" value="{{ arForm.user.email }}">
+    {% if arError.message is not empty and arError.field == 'email' %}
+        <p>{{ arError.message }}</p>
+    {% endif %} #}
+
+
+
+</form>
+ {# {% else %}
+     <div class="cart_empty_text">Корзина пуста!</div>
+    {% endif %} #}
+</div>

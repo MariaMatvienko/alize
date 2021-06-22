@@ -1,0 +1,111 @@
+title = "card_product"
+url = "/catalog/:slug"
+layout = "default"
+is_hidden = 0
+
+[ProductPage]
+slug = "{{ :slug }}"
+slug_required = 1
+smart_url_check = 1
+skip_error = 0
+
+[Cart]
+==
+<?php
+function onStart() {            
+    $folder = '/';
+    $mediaLib = \System\Classes\MediaLibrary::instance();
+    // it will return us MediaLibraryItem instance     
+    $files = $mediaLib->listFolderContents($folder);
+    $this['mediaFiles'] = $files;
+}
+?>
+==
+<link rel="stylesheet" href="{{ 'assets/css/style_card_product.css'|theme}}">
+
+
+
+{% set obProduct = ProductPage.get() %}
+<div class="container">
+    {% partial 'header' %} 
+    <div class="breadcrumbs"> <a href="/alize/">Главная</a> <span class="breadcrumbs_sign">></span> <a href="/alize/catalog">Каталог</a> <span class="breadcrumbs_sign">></span> <span class="breadcrumbs_title_product">{{ obProduct.name}}</span></div>
+    <div class="summary">
+        <div class="img_block">
+            <div class="central_img" style="background-image: url({{ obProduct.preview_image.path() }});"></div>
+              
+            
+            <div class="mini_img_container">
+              <div class="mini_img" style="background-image: url({{ obProduct.preview_image.path() }});"></div>
+            {% set images = obProduct.images %}
+             {% for imageProduct in images %}
+                         
+                <div class="mini_img" style="background-image: url({{ imageProduct.path() }});"></div>
+
+                 {% endfor %} 
+            </div>
+        </div>
+        <div class="specifications_block">
+            <p class="sb_title">{{ obProduct.name}}</p>
+            <p class="sb_cost">{{ obProduct.offer.active().first().price}} грн.</p>
+            <p class="sb_choose">Цвет:</p>
+            <div class="color_img_container">
+               
+                {% set flag = true %}
+                {% for item in mediaFiles %}
+                {% if flag %}
+                {% set str = "http://localhost/alize/" %}
+                 <div class="border_img_color active" style="background: linear-gradient(280.02deg, #FF7AF2 -22.61%, #56D6FF 111.26%);" data-id="{{  item.path |replace({'/':'', ".jpg":''})}}">
+                    <div class="color_img" style="background-image: url({{ str }}{{ item.publicUrl }});"  ></div>
+                  </div>
+                {% set flag = false %}
+                {% else %}
+                <div class="border_img_color" data-id="{{  item.path |replace({'/':'', ".jpg":''})}}">
+                    <div class="color_img" style="background-image: url({{ str }}{{ item.publicUrl }});"></div>
+                   
+                </div>
+                {% endif %}
+                {% endfor %}
+              
+            </div>
+            <!-- <p class="sb_choose">Тип вязки:</p>
+            <div class="color_img_container">
+                <div class="border_img_type" style="background: linear-gradient(280.02deg, #FF7AF2 -22.61%, #56D6FF 111.26%);">
+                    <div class="color_img"></div>
+                </div>
+                <div class="border_img_type">
+                    <div class="color_img"></div>
+                </div>
+                <div class="border_img_type">
+                    <div class="color_img"></div>
+                </div>
+                <div class="border_img_type">
+                    <div class="color_img"></div>
+                </div>
+                <div class="border_img_type">
+                    <div class="color_img"></div>
+                </div>
+                <div class="border_img_type">
+                    <div class="color_img"></div>
+                </div>
+                <div class="border_img_type">
+                    <div class="color_img"></div>
+                </div>
+                <div class="border_img_type">
+                    <div class="color_img"></div>
+                </div>
+                <div class="border_img_type">
+                    <div class="color_img"></div>
+                </div>
+                <div class="border_img_type">
+                    <div class="color_img"></div>
+                </div>
+                <div class="border_img_type">
+                    <div class="color_img"></div>
+                </div>
+            </div> -->
+            <button class="buy" data-id="{{ obProduct }}">Купить</button>
+        </div>
+    </div>
+    <div class="description">Мягкий, теплый, нежнейший пледик для малышей связанный руками из гиппоалергенной пряжи Alize puffy. Можно использовать как плед в кроватку, коляску или конверт на выписку, а также как яркий аксессуар на фотосессию.
+    </div>
+</div>

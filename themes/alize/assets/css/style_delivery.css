@@ -1,0 +1,87 @@
+.main_block {
+    padding-top: 40px;
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+    justify-content: space-between;
+    font-size: 14px;
+    font-weight: 400;
+    text-align: justify;
+    margin-bottom: 80px;
+}
+
+.summary {
+    width: 49%;
+}
+
+.text_block {
+    border-radius: 5px;
+    background-color: white;
+    padding: 20px;
+}
+
+.type_delivery {
+    margin-top: 10px;
+    border-radius: 5px;
+    background-color: white;
+    padding: 15px;
+    text-align: center;
+}
+
+.type_delivery>p {
+    margin-left: -30px;
+}
+
+.map {
+    width: 49%;
+}
+
+iframe {
+    border-radius: 10px;
+}
+
+img.delivery {
+    width: 320px;
+    height: 36px;
+}
+
+.pay_block {
+    padding-bottom: 40px;
+}
+
+.pay {
+    background-color: white;
+    padding: 30px 38px;
+    display: flex;
+    align-items: center;
+    border-radius: 5px;
+    margin-top: -40px;
+}
+
+.pay_image {
+    background-size: cover;
+    margin-right: 30px;
+}
+
+.pay_image.card {
+    background-image: url(../img/debi.png);
+    width: 120px;
+    height: 100px;
+}
+
+.pay_image.pod {
+    background-image: url(../img/yen.png);
+    width: 120px;
+    height: 60px;
+}
+
+.pay_text {
+    width: calc(100% - 120px);
+    text-align: justify;
+    font-size: 14px;
+    font-weight: 400;
+}
+
+.delivery {
+    margin-left: 10px;
+}

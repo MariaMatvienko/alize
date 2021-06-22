@@ -1,0 +1,81 @@
+.row {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    margin-top: 100px;
+    margin-bottom: 100px;
+}
+
+.form-group {
+    text-align: left;
+    display: flex;
+    align-items: flex-end;
+    margin: 30px 0;
+}
+
+.btn {
+    width: 160px;
+    height: 50px;
+    background: linear-gradient(280.02deg, #FF7AF2 -22.61%, #56D6FF 111.26%);
+    color: white;
+    font-weight: bold;
+    font-size: 24px;
+    border: none;
+    border-radius: 5px;
+}
+
+input {
+    width: 300px;
+    height: 25px;
+    border-radius: 5px;
+    border: none;
+}
+
+.icon {
+    width: 25px;
+    height: 25px;
+    margin-right: 13px;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.icon.email {
+    background-image: url(../img/email.png);
+}
+
+.icon.password {
+    background-image: url(../img/password.png);
+}
+
+.create_acc {
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.col-md-6.register {
+    display: none;
+}
+
+.btn.create {
+    width: 300px;
+}
+
+.account_settings {
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+.form-group.logged_in {
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+@media (max-width: 350px) {
+    input {
+        width: 100%;
+        min-width: 250px;
+    }
+    .btn.create {
+        width: 280px;
+    }
+}

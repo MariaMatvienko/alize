@@ -1,0 +1,40 @@
+title = "Catalog"
+url = "/catalog"
+layout = "default"
+is_hidden = 0
+
+[ProductData]
+
+[ProductList]
+sorting = "no"
+
+[CategoryData]
+
+[CategoryList]
+==
+<link rel="stylesheet" href="{{ 'assets/css/style_catalog.css'|theme}}">
+ 
+ {# {% set obProductList = ProductList.make().category(3) %}
+{% for Product in obProductList %}
+{{ Product.name }}
+{% endfor %} #}
+
+    <div class="container">
+     {% partial 'header' %} 
+        <div class="breadcrumbs"><ins>Главная</ins> &nbsp&nbsp&nbsp&nbsp>&nbsp&nbsp&nbsp&nbsp <span class="breadcrumbs_title_product">Каталог</span></div>
+        <div class="catalog_container">
+          {% set obProductList = ProductList.make().active() %}
+             {% for Product in obProductList %}
+             <div class="catalog_item">
+             <a href="/alize/catalog/{{Product.slug}}">
+                <div class="catalog_title">{{ Product.name }}</div></a>
+                <a href="/alize/catalog/{{Product.slug}}"> <div class="catalog_img" style="background-image: url({{ Product.preview_image.path() }});"></div></a>
+                <div class="catalog_cost">{{ Product.offer.active().first().price}} грн.</div>
+               <a href="/alize/catalog/{{Product.slug}}">  <div class="catalog_button_add">Купить</div></a>
+            </div>
+             {% endfor %} 
+    
+            
+  
+        </div>
+    </div>

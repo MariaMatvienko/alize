@@ -1,0 +1,1 @@
+Bad protocol version. Please update to a newer version of October CMS (Build 472+ or v1.1.5+) and try again.

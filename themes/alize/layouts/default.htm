@@ -1,0 +1,38 @@
+description = "Default layout" 
+==
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ 'assets/css/jquery.fancybox.min.css'|theme}}">
+    <link rel="stylesheet" href="{{ 'assets/css/main.css'|theme}}">
+    <link rel="stylesheet" href="{{ 'assets/css/normalize.css'|theme}}">
+    <link rel="stylesheet" href="{{ 'assets/css/style_callback.css'|theme}}">
+    <link rel="stylesheet" href="{{ 'assets/css/animate.css'|theme}}">
+    <title>{{this.page.title}}</title>
+    {% styles %}
+</head>
+
+<body>
+    {% page %}
+    {% partial 'footer' %} 
+    {% partial 'modules' %} 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="{{ 'assets/js/jquery.maskedinput.min.js'|theme}}"></script>
+    <script src="{{ 'assets/js/jquery.fancybox.min.js'|theme}}"></script>
+    <script src="{{ 'assets/js/main.js'|theme}}"></script>
+    <script src="{{ 'assets/js/script_callback.js'|theme}}"></script>
+    <script src="{{ 'assets/js/wow.min.js'|theme}}"></script>
+    <script>
+        new WOW().init();
+    </script>
+    {% framework extras %} 
+    {% scripts %}
+</body>
+
+</html>

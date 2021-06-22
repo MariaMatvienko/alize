@@ -1,0 +1,73 @@
+title = "Alize"
+url = "/"
+layout = "default"
+is_hidden = 0
+
+
+[PaymentMethodList]
+
+[ShippingTypeList]
+==
+
+{# {% if arError.message is not empty %}
+    <p>{{ arError.message }}</p>
+{% endif %} #}
+
+
+
+<link rel="stylesheet" href="{{ 'assets/css/style_main.css'|theme}}">
+
+<div class="top_img_container">
+    <div class="container">
+        {% partial 'header' %} 
+        <div class="top_img_mobile"> </div>
+        <div class="order">
+            <div class="order_title">Пряжа из Ализе-Пуффи</div>
+            <div class="text_order">Шарфы, шапки, пледы, подушки, вязанные игрушки, и многое другое можно заказать на нашем сайте</div>
+
+            <button class="do_order">Сделать заказ</button>
+        </div>
+    </div>
+</div>
+<div class="container">
+
+
+    <div class="specifications_container">
+        <div class="specifications">
+            <div class="specifications_block">
+                <div class="specifications_img"><img src="{{ 'assets/img/quallity.png'|theme}}" alt="" class="quallity"></div>
+                <div class="specifications_white">Пряжа полностью гиппоалергенна</div>
+            </div>
+            <div class="specifications_block">
+                <div class="specifications_img"><img src="{{ 'assets/img/medal.png'|theme}}" alt="" class="medal"></div>
+                <div class="specifications_white">Быстрая <br>и качественная <br>работа</div>
+            </div>
+            <div class="specifications_block">
+                <div class="specifications_img"><img src="{{ 'assets/img/color-palette.png'|theme}}" alt="" class="color-palette"></div>
+                <div class="specifications_white">Множество цветов <br>на выбор</div>
+            </div>
+        </div>
+
+    </div>
+    <div class="about_img about_img_mobile"></div>
+</div>
+<div class="about_yarn_back"> </div>
+<div class="container">
+    <div class="about_yarn_title">Немного о пряже</div>
+    <div class="about_yarn_text"> Это мягкие длинношерстные плюшевые нитки для вязания руками без спиц и крючка шарфиков, пледов, подушек и других простых изделий. Нитка толстая, очень мягкая и нежная. Состоит из одинаковых больших петель (петли зафиксированы)</div>
+    <div class="about_img_container wow fadeInRight">
+        <div class="about_img"></div>
+    </div>
+</div>
+<div class="proposition_background">
+    <div class="container">
+        <div class="proposition_block">
+            <div class="proposition_img wow fadeInLeft"></div>
+            <div class="proposition_form">
+                <p class="proposition_title wow fadeInRight">Предложите нам свои идеи!</p>
+                <div class="wow fadeInRight"> <input type="email" class="proposition_email" placeholder="E-mail"></div>
+                <div class="wow fadeInRight"> <textarea name="" id="" cols="30" rows="5" class="proposition_text" placeholder="Текст предложения"></textarea></div>
+            </div>
+        </div>
+    </div>
+</div> 

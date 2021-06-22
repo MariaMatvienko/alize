@@ -1,0 +1,18 @@
+{% set obCartElementList = Cart.get() %}
+ {% set total_price = obCartElementList.getTotalPrice()+40 %} 
+{% if obCartElementList.isNotEmpty() %}
+
+<div class="result_line">
+    <p class="result_left_side">Сума товаров</p>
+    <p class="result_right_side" data-id="{{ obCartElementList.getTotalPrice() }}">{{ obCartElementList.getTotalPrice() }} грн.</p>
+</div>
+<div class="result_line">
+    <p class="result_left_side">Доставка</p>
+    <p class="result_right_side result_delivery">40 грн.</p>
+</div>
+<img src="{{ 'assets/img/line_order.png'|theme}}" class="order_line" alt="">
+<div class="result_line ">
+    <p class="result_left_side result_all">ИТОГО</p>
+    <p class="result_right_side result_all total_price">{{ total_price }} грн.</p>
+</div>
+{% endif %}

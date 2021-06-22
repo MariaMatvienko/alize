@@ -1,0 +1,53 @@
+title = "Доставка и оплата"
+url = "/dostavka-i-oplata"
+layout = "default"
+is_hidden = 0
+==
+<link rel="stylesheet" href="{{ 'assets/css/style_delivery.css'|theme}}">
+<div class="container">
+{% partial 'header' %} 
+        <div class="breadcrumbs"><ins>Главная</ins> &nbsp&nbsp&nbsp&nbsp>&nbsp&nbsp&nbsp&nbsp <span class="breadcrumbs_title_product">Доставка</span></div>
+        <div class="main_block">
+            <div class="summary">
+                <div class="text_block">
+                    <p>После заказа с Вами свяжется наш менеджер для уточнения заказа и сроков доставки</p>
+                    <p>Если у вас есть вопросы звоните по тел.: (095) 677-88-11 (МТС), (098) 650-90-01 (КиевСтар).</p>
+                    <p>Адрес самовывоза: </p>
+                    <p>Днипро, Днепропетровская область, ул. Метростроевская</p>
+                    <p>Время работы: </p>
+                    <p><strong>Пн - Сб: 9:00 - 19:00</strong> </p>
+                    <p><strong>Вс: выходной</strong></p>
+                    <p>Приятных покупок!</p>
+                </div>
+                <div class="type_delivery">
+                    <p> <strong>Способы доставки:</strong></p>
+                    <img class="delivery" src="{{ 'assets/img/delivery.png'|theme}}" alt="">
+                </div>
+            </div>
+            <div class="map">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2644.6124400300073!2d34.913312685061264!3d48.48314705259873!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40dbe16b448bfb7f%3A0xad85b62c38d6783a!2z0YPQuy4g0JzQtdGC0YDQvtGB0YLRgNC-0LXQstGB0LrQsNGP!5e0!3m2!1sru!2sua!4v1611664387938!5m2!1sru!2sua"
+                    width="100%" height="450" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+            </div>
+        </div>
+        <div class="pay_block">
+            <div class="pay">
+                <div class="pay_image card"></div>
+                <div class="pay_text">
+                    <p><strong>Оплата на карту:</strong></p>
+                    <p>Вы перечисляете сумму заказа на карту Приватбанка (номер Вам сообщит наш менеджер после оформления заказа и проверки наличия товара на складе), и как только мы получаем оплату — высылаем заказанный Вами товар по указанному адресу отделения
+                        «Новой Почты» в Вашем городе.
+                        <p> <strong>Где можно оплатить:</strong></p>
+                        <p>Приват24</p>
+                        <p>терминалы Приватбанка</p>
+                        <p>в отделении Приватбанка</p>
+                </div>
+            </div>
+            <div class="pay">
+                <div class="pay_image pod"></div>
+                <div class="pay_text">
+                    <p><strong>Наложеный платеж:</strong></p>
+                    <p> Вы оплачиваете стоимость заказа при получении товара на отделении «Новой Почты» и обратную доставку денег, согласно тарифов «Новой Почты» (2% от общей стоимости заказа + 20 грн.)</p>
+                </div>
+            </div>
+        </div>
+    </div>

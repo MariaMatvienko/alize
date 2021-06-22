@@ -1,0 +1,164 @@
+title = "Account"
+url = "/account"
+layout = "default"
+is_hidden = 0
+
+[account]
+paramCode = "code"
+forceSecure = 0
+requirePassword = 0
+
+[notifications]
+recordsPerPage = 7
+includeAssets = 1
+==
+<link rel="stylesheet" href="{{ 'assets/css/style_account.css'|theme}}">
+<div class="container">
+{% partial 'header' %} 
+{% if user %}
+<div class="account_settings">
+    <h4>Дополнительная информация</h4>
+    <form method="POST" action="http://localhost/alize/account" accept-charset="UTF-8" data-request="onUpdate"><input name="_session_key" type="hidden" value="cPFYfCA32wSztRLhLmYnapHwPQ2BBCnp2esLzvxi"><input name="_token" type="hidden" value="xLzfrjhOb0jr1unWrEkTid8jZ7wAzFyz9cWq6myE">
+        <div class="form-group logged_in">
+            <label for="accountName">ФИО</label>
+            <input name="name" type="text" class="form-control" id="accountName" value="{{user.name}}">
+        </div>
+        <div class="form-group logged_in">
+            <label for="accountMobile">Телефон</label>
+            <input name="mobile" type="phone" class="form-control" id="accountMobile" value="{{user.mobile}}">
+        </div>
+        <div class="form-group logged_in">
+            <label for="accountStreet_addr">Адрес</label>
+            <input name="street_addr" type="text" class="form-control" id="accountStreet_addr" value="{{user.street_addr}}">
+        </div>
+        <div class="form-group logged_in">
+            <label for="accountEmail">E-mail</label>
+            <input name="email" type="email" class="form-control" id="accountEmail" value="{{user.email}}">
+        </div>
+
+        <button type="submit" class="btn btn-default">Сохранить</button>
+
+    </form>
+
+    <!-- {% if user %}
+  {# Get OrderCollection object from user object #}
+  {% set obOrderList = user.order_list %}
+  {% if obOrderList.isNotEmpty() %}
+    <table>
+      <caption>Order list</caption>
+      <tr>
+        <th>Order number</th>
+        <th>Status</th>
+        <th>Total price</th>
+      </tr>
+      {% for obOrder in obOrderList %}
+        <tr>
+          <td>{{ obOrder.order_number }}</td>
+          <td>{{ obOrder.status.name_for_user }}</td>
+          <td>{{ obOrder.total_price }} {{ obOrder.currency_symbol }}</td>
+        </tr>
+      {% endfor %}
+      </table>
+  {% else %}
+    <div>You have no orders yet</div>
+  {% endif %}
+{% else %}
+    <p>Nobody is logged in</p>
+{% endif %} -->
+
+    <!-- <a href="javascript:;" onclick="$('#accountDeactivateForm').toggle()">
+    Deactivate account
+</a>
+<div id="accountDeactivateForm" style="display: none">
+    <form method="POST" action="http://localhost/alize/account" accept-charset="UTF-8" data-request="onDeactivate"><input name="_session_key" type="hidden" value="cPFYfCA32wSztRLhLmYnapHwPQ2BBCnp2esLzvxi"><input name="_token" type="hidden" value="xLzfrjhOb0jr1unWrEkTid8jZ7wAzFyz9cWq6myE">
+        <hr>
+        <h3>Deactivate your account?</h3>
+        <p>
+            Your account will be disabled and your details removed from the site. You can reactivate your account any time by signing back in.
+        </p>
+        <div class="form-group">
+            <label for="accountDeletePassword">To continue, please enter your password:</label>
+            <input name="password" type="password" class="form-control" id="accountDeletePassword">
+        </div>
+        <button type="submit" class="btn btn-danger">
+            Confirm Deactivate Account
+        </button>
+        <a href="javascript:;" onclick="$('#accountDeactivateForm').toggle()">
+            I changed my mind
+        </a>
+    </form>
+</div> -->
+</div>
+
+{% else %}
+<div class="row">
+
+            <div class="col-md-6 login">
+                <h4>Вход</h4>
+                <form method="POST" action="http://localhost/alize/account" accept-charset="UTF-8" data-request="onSignin"><input name="_session_key" type="hidden" value="1AhWEZCGvIFIVzNVA3E5zB39JRcwUf6ogZzuCtuW"><input name="_token" type="hidden" value="Yo7ga0v1jbfWglvUqmTGAeGnkMZ6NuUvJrKiVzaB">
+
+                    <div class="form-group">
+                        <div class="icon email"></div>
+                        <div class="">
+                            <label for="userSigninLogin">E-mail<br></label>
+                            <input name="login" type="text" class="form-control" id="userSigninLogin">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="icon password"></div>
+                        <div class="">
+                            <label for="userSigninPassword">Пароль<br></label>
+                            <input name="password" type="password" class="form-control" id="userSigninPassword">
+                        </div>
+                    </div>
+
+
+                    <button type="submit" class="btn btn-default">Войти</button>
+
+                </form>
+                <div class="create_acc">
+                    <p>Нет аккаунта? Создайте его сейчас</p>
+                </div>
+            </div>
+
+            <div class="col-md-6 register">
+                <h4>Регистрация</h4>
+
+                <form method="POST" action="http://localhost/alize/account" accept-charset="UTF-8" data-request="onRegister"><input name="_session_key" type="hidden" value="1AhWEZCGvIFIVzNVA3E5zB39JRcwUf6ogZzuCtuW"><input name="_token" type="hidden" value="Yo7ga0v1jbfWglvUqmTGAeGnkMZ6NuUvJrKiVzaB">
+
+
+
+                    <div class="form-group">
+                        <div class="icon email"></div>
+                        <div class="">
+                            <label for="registerEmail">E-mail<br></label>
+                            <input name="email" type="email" class="form-control" id="registerEmail">
+                        </div>
+                    </div>
+
+
+                    <div class="form-group">
+                        <div class="icon password"></div>
+                        <div class="">
+                            <label for="registerPassword">Пароль<br></label>
+                            <input name="password" type="password" class="form-control" id="registerPassword">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="icon password"></div>
+                        <div class="">
+                            <label for="accountPasswordConfirm">Подтвердите пароль<br></label>
+                            <input name="password_confirmation" type="password" class="form-control" id="accountPasswordConfirm">
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn btn-default create">Создать аккаунт</button>
+
+                </form>
+            </div>
+
+        </div>
+{% endif %}
+</div>

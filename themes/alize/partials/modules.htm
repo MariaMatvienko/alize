@@ -1,0 +1,52 @@
+<div id="modal" class="contact_alert">
+    <form action="#" method="post" class="phone_form">
+        <p class="contact_big_title">Оставьте свой номер</p>
+        <p class="contact_small_title">Мы вам перезвоним</p>
+        <div class="user_phone">
+            <input type="tel" required placeholder="+38 (___) ___-__-__" id="user_phone" class="user-phone" title="Формат: +38 (096) 999 99 99" />
+        </div>
+
+        <input type="submit" class="btn_submit" disabled />
+
+    </form>
+</div>
+<div id="modal_cart" class="cart_modal cart_update">
+    {% partial 'cart' %}
+</div>
+
+
+<a data-fancybox data-src="#modal" id="popup__toggle">
+    <div class="circlephone" style="transform-origin: center;"></div>
+    <div class="circle-fill" style="transform-origin: center;"></div>
+    <div class="img-circle" style="transform-origin: center;">
+        <div class="img-circleblock" style="transform-origin: center;"></div>
+    </div>
+</a>
+
+<div class="overlay">
+    <nav class="overlayMenu">
+        <ul role="menu">
+            <li>
+                <a href="#" role="menuitem"><img src="{{ 'assets/img/logo.png'|theme}}" alt="" class="logo_menu"></a>
+            </li>
+            <li><a href="catalog.html" role="menuitem">Каталог</a></li>
+            <li><a href="#" role="menuitem">Доставка и оплата</a></li>
+            <li><a href="#" role="menuitem">Контакт</a></li>
+            <li><a href="#" role="menuitem">Отзывы</a></li>
+            <li>
+                <input type="text" class="search li_search">
+                <i class="fa fa-search"></i>
+
+
+            </li>
+        </ul>
+        <div class="footer_social_block mob_menu_social">
+            <img src="{{ 'assets/img/facebook.png'|theme}}" alt="" class="img_social">
+            <img src="{{ 'assets/img/instagram.png'|theme}}" alt="" class="img_social">
+            <img src="{{ 'assets/" img/youtube.png '|theme}}" alt="" class="img_social">
+
+        </div>
+    </nav>
+</div>
+
+<div class="navBurger" role="navigation" id="navToggle"></div>
